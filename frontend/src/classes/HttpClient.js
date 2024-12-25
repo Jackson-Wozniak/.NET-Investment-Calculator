@@ -15,6 +15,12 @@ export default async function getData(startingAmount, years, returnRate, additio
         })
     });
 
+    if(!response.ok){
+        let err = await response.json();
+        alert(err.error);
+        return [];
+    }
+
     let result = await response.json();
     console.log(result.yearlyAmounts);
 
